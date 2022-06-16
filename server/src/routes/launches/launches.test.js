@@ -3,7 +3,9 @@
  */
 const request = require('supertest');
 const app = require('../../app');
+const { loadPlanetsData } = require('../../models/planets.model');
 const mongoose = require('../../services/mongo');
+const { loadPlanetsData } = require('../../models/planets.model');
 
 /**
  * describ() and test() are functions in Jest
@@ -11,6 +13,7 @@ const mongoose = require('../../services/mongo');
 describe('Launches Test API', () => {
     beforeAll(async () => {
         await mongoose.mongoConnect();
+        await loadPlanetsData();
     });
 
     /**
